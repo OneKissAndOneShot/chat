@@ -18,6 +18,14 @@ export default [
     }
   },
   {
+    path: "/my",
+    name: "my",
+    component: _import("my/index"),
+    meta: {
+      title: "我的"
+    }
+  },
+  {
     path: "/socket",
     name: "socket",
     component: _import("socket/index"),

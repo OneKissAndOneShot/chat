@@ -25,7 +25,7 @@ router.beforeEach((to, from, next) => {
   } else {
     console.log(store);
     store.dispatch("LEAVAROOM", {
-      name: Cookies.get('name'),
+      name: Cookies.get("name"),
       roomid: 0
     });
     if (to.path === "/") {

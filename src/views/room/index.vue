@@ -9,11 +9,17 @@
         </div>
       </router-link>
     </div>
+    <bar />
   </div>
 </template>
 
 <script>
+import bar from "@/components/bar";
+
 export default {
+  components: {
+    bar
+  },
   data() {
     return {
       list: []
@@ -33,19 +39,23 @@ export default {
 
 <style lang="less" scoped>
 .room {
-  padding: 40px 10px;
+  min-height: 100vh;
+  background-color: #f5f5f5;
+  padding: 20px 15px 0;
   font-size: 24px;
 }
 .list {
   margin-top: -20px;
 }
 .item {
+  position: relative;
+  z-index: 1;
   display: flex;
   align-items: center;
   margin-top: 20px;
   padding: 15px 20px;
   border-radius: 5px;
-  background: rgba(0, 0, 0, 0.2);
+  background-color: #fff;
 }
 .icon {
   display: block;

@@ -16,6 +16,10 @@ router.addRoutes(homeRouter);
 router.beforeEach((to, from, next) => {
   const token = Cookies.get("socket-token");
   // next();
+  // store.dispatch("TESTTOKEN", { name: Cookies.get("name") }).then(res => {
+  //   store.dispatch("OFFLINE");
+  // });
+
   if (token) {
     if (to.path == "/") {
       next("/room");

@@ -2,6 +2,10 @@ import Cookies from "js-cookie";
 import io from "socket.io-client";
 const socket = io("http://192.168.9.17:8090/websocket");
 
+socket.on("connect", () => {
+  console.log("connect");
+});
+
 const state = {
   name: "",
   token: "",
@@ -21,6 +25,14 @@ const getters = {
 };
 
 const actions = {
+  TESTTOKEN({ commit, state }, info) {
+    return new Promise(resolve => {
+      socket.emit("token", {
+        name: info.name
+      });
+      resolve();
+    });
+  },
   LOGIN({ commmit }, userinfo) {
     return new Promise(resolve => {
       // socket.emit("success");
@@ -74,6 +86,8 @@ const actions = {
             break;
           case "loginerr":
             break;
+          case "updatestatus":
+            commit("UPDATESTATUS", res.status);
           case "room":
             commit("UPDATEROOM", res.list);
             break;
@@ -98,9 +112,9 @@ const actions = {
   OFFLINE() {
     return new Promise(resolve => {
       socket.on("disconnect", () => {
+        console.log("logout");
         Cookies.remove("socket-token");
-        this.$router.push("/");
-        resolve();
+        resolve(true);
       });
     });
   }

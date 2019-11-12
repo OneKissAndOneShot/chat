@@ -2,9 +2,9 @@ import Cookies from "js-cookie";
 import io from "socket.io-client";
 const socket = io("http://192.168.9.17:8090/websocket");
 
-socket.on("connect", () => {
-  console.log("connect");
-});
+// socket.on("connect", () => {
+//   console.log("connect");
+// });
 
 const state = {
   name: "",

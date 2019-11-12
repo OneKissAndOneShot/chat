@@ -28,10 +28,10 @@ router.beforeEach((to, from, next) => {
     }
   } else {
     console.log(store);
-    store.dispatch("LEAVAROOM", {
-      name: Cookies.get("name"),
-      roomid: 0
-    });
+    // store.dispatch("LEAVAROOM", {
+    //   name: Cookies.get("name") || null,
+    //   roomid: 0
+    // });
     if (to.path === "/") {
       next();
     } else {

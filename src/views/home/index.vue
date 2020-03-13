@@ -5,7 +5,7 @@
         <img src="https://y.gtimg.cn/music/common/upload/t_playsong_ad/1207759.png" width="45" />
         <span>{{rankTip[index].name}}</span>
       </div>
-      <a-input-search :defaultValue="tipurl" v-model="url" placeholder="请输入地址" size="large" @search="test" enterButton @keyup.enter.native="test" />
+      <a-input-search class="inp" :defaultValue="tipurl" v-model="url" placeholder="请输入地址" size="large" @search="test" enterButton @keyup.enter.native="test" />
     </div>
     <a-button type="primary" class="btn" @click="demo">Test</a-button>
     <div class="info">
@@ -99,13 +99,13 @@ export default {
   margin: 20px auto;
 }
 .index {
-  height: 100%;
+  min-height: 100vh;
   background-color: #000;
 }
 .inp {
-  width: 900px;
+  max-width: 500px;
   margin: 0 auto;
-  padding-top: 150px;
+  padding-top: 180px;
 }
 .info {
   text-align: center;
@@ -134,6 +134,7 @@ export default {
   position: fixed;
   top: 10px;
   left: 10px;
+  z-index: 1;
   color: #fff;
   padding: 10px;
   border-radius: 10px;
